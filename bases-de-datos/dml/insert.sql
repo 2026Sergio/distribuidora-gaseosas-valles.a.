@@ -203,3 +203,9 @@ INSERT INTO vendedor_idiomas (id_vendedor, idioma) VALUES
 ('VEN-01', 'Inglés'),
 ('VEN-02', 'Español'),
 ('VEN-02', 'Kaqchikel');
+
+-- Vendedor Cobertura 
+INSERT INTO vendedor_cobertura (id_vendedor, municipio_cobertura) VALUES
+('VEN-01', 'Girón'),
+('VEN-01', 'Bucaramanga'),
+('VEN-02', 'Piedecuesta');
