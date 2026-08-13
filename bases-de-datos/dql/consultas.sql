@@ -69,3 +69,16 @@ SELECT
 FROM clientes cli
 WHERE cli.nombre_cliente LIKE '%Abarrotería%'
 ORDER BY cli.nombre_cliente ASC;
+
+-- ============================================================================
+-- 6. Consultar productos de ciertas categorías usando IN.
+-- ============================================================================
+SELECT 
+    p.id_producto,
+    p.nombre_producto,
+    c.nombre_categoria,
+    p.volumen_ml
+FROM productos p
+JOIN categorias c ON p.id_categoria = c.id_categoria
+WHERE c.id_categoria IN ('CAT-01', 'CAT-02', 'CAT-03')
+ORDER BY c.nombre_categoria, p.nombre_producto;
