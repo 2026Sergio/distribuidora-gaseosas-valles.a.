@@ -42,3 +42,16 @@ JOIN categorias c ON p.id_categoria = c.id_categoria
 JOIN detalle_pedido dp ON p.id_producto = dp.id_producto
 GROUP BY p.id_producto, p.nombre_producto, c.nombre_categoria
 ORDER BY total_unidades_vendidas DESC;
+
+-- ============================================================================
+-- 4. Mostrar clientes y la cantidad de pedidos realizados.
+-- ============================================================================
+SELECT 
+    cli.id_cliente,
+    cli.nombre_cliente,
+    cli.nit_cliente,
+    COUNT(p.id_pedido) AS cantidad_pedida_pedidos
+FROM clientes cli
+LEFT JOIN pedidos p ON cli.id_cliente = p.id_cliente
+GROUP BY cli.id_cliente, cli.nombre_cliente, cli.nit_cliente
+ORDER BY cantidad_pedida_pedidos DESC;
