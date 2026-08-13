@@ -170,3 +170,11 @@ INSERT INTO inventario (id_producto, id_sede, stock_actual, stock_minimo) VALUES
 ('PROD-032', 'SED-02', 1800, 300),
 ('PROD-029', 'SED-03', 400, 100),
 ('PROD-066', 'SED-04', 1500, 250);
+
+
+-- Pedidos (4 Pedidos requeridos)
+INSERT INTO pedidos (id_pedido, fecha_pedido, id_cliente, id_sede) VALUES
+('PED-1001', '2026-08-01 08:30:00', 'CLI-501', 'SED-01'),
+('PED-1002', '2026-08-01 10:15:00', 'CLI-502', 'SED-02'),
+('PED-1003', '2026-08-02 14:00:00', 'CLI-503', 'SED-03'),
+('PED-1004', '2026-08-03 09:45:00', 'CLI-501', 'SED-01');
