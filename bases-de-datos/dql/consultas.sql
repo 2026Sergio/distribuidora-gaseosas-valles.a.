@@ -102,3 +102,18 @@ HAVING COUNT(p.id_pedido) = (
         GROUP BY id_cliente
     ) AS resumen_conteo
 );
+
+-- ============================================================================
+-- 8. Consultar pedidos y sus totales agrupados por sede.
+-- ============================================================================
+SELECT 
+    s.id_sede,
+    s.nombre_sede,
+    COUNT(DISTINCT p.id_pedido) AS total_pedidos_gestionados,
+    SUM(dp.cantidad_pedida * dp.precio_unitario) AS monto_total_ventas_sin_iva,
+    ROUND(SUM(dp.cantidad_pedida * dp.precio_unitario) * 1.10, 2) AS monto_total_ventas_con_iva
+FROM sedes s
+JOIN pedidos p ON s.id_sede = p.id_sede
+JOIN detalle_pedido dp ON p.id_pedido = dp.id_pedido
+GROUP BY s.id_sede, s.nombre_sede
+ORDER BY monto_total_ventas_con_iva DESC;
