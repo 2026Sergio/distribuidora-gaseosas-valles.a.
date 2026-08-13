@@ -55,3 +55,17 @@ FROM clientes cli
 LEFT JOIN pedidos p ON cli.id_cliente = p.id_cliente
 GROUP BY cli.id_cliente, cli.nombre_cliente, cli.nit_cliente
 ORDER BY cantidad_pedida_pedidos DESC;
+
+-- ============================================================================
+-- 5. Buscar clientes por nombre parcial usando LIKE.
+-- ============================================================================
+SELECT 
+    cli.id_cliente,
+    cli.nombre_cliente,
+    cli.nit_cliente,
+    cli.direccion_cliente,
+    cli.telefono_cliente,
+    cli.correo_cliente
+FROM clientes cli
+WHERE cli.nombre_cliente LIKE '%Abarrotería%'
+ORDER BY cli.nombre_cliente ASC;
