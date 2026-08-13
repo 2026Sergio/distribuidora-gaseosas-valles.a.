@@ -172,9 +172,20 @@ INSERT INTO inventario (id_producto, id_sede, stock_actual, stock_minimo) VALUES
 ('PROD-066', 'SED-04', 1500, 250);
 
 
--- Pedidos (4 Pedidos requeridos)
+-- Pedidos 
 INSERT INTO pedidos (id_pedido, fecha_pedido, id_cliente, id_sede) VALUES
 ('PED-1001', '2026-08-01 08:30:00', 'CLI-501', 'SED-01'),
 ('PED-1002', '2026-08-01 10:15:00', 'CLI-502', 'SED-02'),
 ('PED-1003', '2026-08-02 14:00:00', 'CLI-503', 'SED-03'),
 ('PED-1004', '2026-08-03 09:45:00', 'CLI-501', 'SED-01');
+
+
+-- Detalle de Pedidos
+INSERT INTO detalle_pedido (id_pedido, id_producto, precio_unitario, cantidad_pedida) VALUES
+('PED-1001', 'PROD-007', 4500.00, 10),
+('PED-1001', 'PROD-029', 7000.00, 5),
+('PED-1002', 'PROD-007', 4500.00, 20),
+('PED-1002', 'PROD-032', 2200.00, 50),
+('PED-1003', 'PROD-029', 7000.00, 15),
+('PED-1004', 'PROD-007', 4500.00, 15),
+('PED-1004', 'PROD-044', 2000.00, 30);
