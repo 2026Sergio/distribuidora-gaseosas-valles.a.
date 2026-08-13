@@ -189,3 +189,9 @@ INSERT INTO detalle_pedido (id_pedido, id_producto, precio_unitario, cantidad_pe
 ('PED-1003', 'PROD-029', 7000.00, 15),
 ('PED-1004', 'PROD-007', 4500.00, 15),
 ('PED-1004', 'PROD-044', 2000.00, 30);
+
+
+-- Vendedores 
+INSERT INTO vendedores (id_vendedor, nombre_vendedor, id_sede, telefono_vendedor) VALUES
+('VEN-01', 'Carlos Alvarado', 'SED-01', '+502 5100 9988'),
+('VEN-02', 'Lucía Fuentes', 'SED-03', '+502 4233 1122');
