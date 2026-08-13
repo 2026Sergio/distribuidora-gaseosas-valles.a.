@@ -23,3 +23,11 @@ INSERT INTO almacenamientos (id_almacenamiento, capacidad_cajas) VALUES
 ('ALM-02', 40000),
 ('ALM-03', 18000),
 ('ALM-04', 30000);
+
+
+-- Sedes (4 Sedes)
+INSERT INTO sedes (id_sede, nombre_sede, ubicacion_sede, id_encargado, id_almacenamiento) VALUES
+('SED-01', 'Sede Principal Girón', 'Zona Industrial Carrizal, Girón', 'ENC-01', 'ALM-01'),
+('SED-02', 'Sede Bucaramanga Norte', 'Av. Quebradaseca #14-30, Bucaramanga', 'ENC-02', 'ALM-02'),
+('SED-03', 'Sede Piedecuesta Sur', 'Cll 3 #8-45, Piedecuesta', 'ENC-03', 'ALM-03'),
+('SED-04', 'Sede Bucaramanga Centro', 'Cra 21 #34-12, Bucaramanga', 'ENC-04', 'ALM-04');
