@@ -160,3 +160,13 @@ INSERT INTO productos (id_producto, nombre_producto, id_categoria, volumen_ml) V
 ('PROD-099', 'Néctar Kerns Guayaba 350ml', 'CAT-03', 350),
 ('PROD-100', 'Néctar Kerns Guayaba 1000ml', 'CAT-03', 1000);
 
+
+-- Inventario Inicial (Stock por Sede)
+INSERT INTO inventario (id_producto, id_sede, stock_actual, stock_minimo) VALUES
+('PROD-007', 'SED-01', 1200, 200),
+('PROD-029', 'SED-01', 850, 150),
+('PROD-044', 'SED-01', 2500, 400),
+('PROD-007', 'SED-02', 3000, 500),
+('PROD-032', 'SED-02', 1800, 300),
+('PROD-029', 'SED-03', 400, 100),
+('PROD-066', 'SED-04', 1500, 250);
