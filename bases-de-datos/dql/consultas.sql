@@ -82,3 +82,23 @@ FROM productos p
 JOIN categorias c ON p.id_categoria = c.id_categoria
 WHERE c.id_categoria IN ('CAT-01', 'CAT-02', 'CAT-03')
 ORDER BY c.nombre_categoria, p.nombre_producto;
+
+-- ============================================================================
+-- 7. Mostrar el cliente con mayor número de pedidos (subconsulta).
+-- ============================================================================
+SELECT 
+    cli.id_cliente,
+    cli.nombre_cliente,
+    cli.nit_cliente,
+    COUNT(p.id_pedido) AS total_pedidos
+FROM clientes cli
+JOIN pedidos p ON cli.id_cliente = p.id_cliente
+GROUP BY cli.id_cliente, cli.nombre_cliente, cli.nit_cliente
+HAVING COUNT(p.id_pedido) = (
+    SELECT MAX(conteo_pedidos)
+    FROM (
+        SELECT COUNT(id_pedido) AS conteo_pedidos
+        FROM pedidos
+        GROUP BY id_cliente
+    ) AS resumen_conteo
+);
