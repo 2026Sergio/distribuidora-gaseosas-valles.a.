@@ -28,3 +28,17 @@ JOIN clientes cli ON p.id_cliente = cli.id_cliente
 JOIN sedes s ON p.id_sede = s.id_sede
 WHERE p.fecha_pedido BETWEEN '2026-01-01 00:00:00' AND '2026-06-30 23:59:59'
 ORDER BY p.fecha_pedido ASC;
+
+-- ============================================================================
+-- 3. Listar los productos más vendidos (con JOIN y GROUP BY).
+-- ============================================================================
+SELECT 
+    p.id_producto,
+    p.nombre_producto,
+    c.nombre_categoria,
+    SUM(dp.cantidad_pedida) AS total_unidades_vendidas
+FROM productos p
+JOIN categorias c ON p.id_categoria = c.id_categoria
+JOIN detalle_pedido dp ON p.id_producto = dp.id_producto
+GROUP BY p.id_producto, p.nombre_producto, c.nombre_categoria
+ORDER BY total_unidades_vendidas DESC;
