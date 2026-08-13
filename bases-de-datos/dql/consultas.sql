@@ -14,3 +14,17 @@ FROM inventario i
 JOIN productos p ON i.id_producto = p.id_producto
 JOIN sedes s ON i.id_sede = s.id_sede
 WHERE i.stock_actual <= i.stock_minimo;
+
+-- ============================================================================
+-- 2. Consultar los pedidos realizados entre dos fechas (BETWEEN).
+-- ============================================================================
+SELECT 
+    p.id_pedido,
+    p.fecha_pedido,
+    cli.nombre_cliente,
+    s.nombre_sede
+FROM pedidos p
+JOIN clientes cli ON p.id_cliente = cli.id_cliente
+JOIN sedes s ON p.id_sede = s.id_sede
+WHERE p.fecha_pedido BETWEEN '2026-01-01 00:00:00' AND '2026-06-30 23:59:59'
+ORDER BY p.fecha_pedido ASC;
