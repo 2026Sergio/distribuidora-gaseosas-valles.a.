@@ -209,3 +209,7 @@ INSERT INTO vendedor_cobertura (id_vendedor, municipio_cobertura) VALUES
 ('VEN-01', 'Girón'),
 ('VEN-01', 'Bucaramanga'),
 ('VEN-02', 'Piedecuesta');
+
+-- Ejecuta esto en MySQL Workbench para simular productos con stock crítico:
+UPDATE inventario SET stock_actual = 50 WHERE id_producto = 'PROD-007' AND id_sede = 'SED-01';
+UPDATE inventario SET stock_actual = 80 WHERE id_producto = 'PROD-029' AND id_sede = 'SED-03';
