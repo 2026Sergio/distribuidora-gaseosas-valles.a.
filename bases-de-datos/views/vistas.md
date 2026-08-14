@@ -1,6 +1,4 @@
-
-USE distribuidora_bebidas;
-
+## las 3 vistas
 -- 1. Vista: Resumen de pedidos por sede
 CREATE OR REPLACE VIEW vista_resumen_pedidos_por_sede AS
 SELECT 
@@ -13,19 +11,7 @@ GROUP BY s.id_sede, s.nombre_sede;
 
 SELECT * FROM vista_resumen_pedidos_por_sede;
 
--- 2. Vista: Productos con bajo stock (Corregida)
-CREATE OR REPLACE VIEW vista_productos_bajo_stock AS
-SELECT 
-    id_producto,
-    nombre_producto,
-    id_categoria,
-    volumen_ml,
-    stock_actual,
-    stock_minimo
-FROM productos
-WHERE stock_actual <= stock_minimo;
-
-SELECT * FROM vista_productos_bajo_stock;
+![alt text](image.png)
 
 -- 3. Vista: Clientes activos
 CREATE OR REPLACE VIEW vista_clientes_activos AS
@@ -39,3 +25,5 @@ FROM clientes c
 INNER JOIN pedidos p ON c.id_cliente = p.id_cliente;
 
 SELECT * FROM vista_clientes_activos;
+
+![alt text](image-1.png)
