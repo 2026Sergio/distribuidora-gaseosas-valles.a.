@@ -25,6 +25,24 @@ CREATE TABLE productos (
     CONSTRAINT fk_productos_categorias FOREIGN KEY (id_categoria) REFERENCES categorias(id_categoria)
 ) ENGINE=InnoDB;;
 
+
+--  Agregar la columna precio a la tabla productos con un valor por defecto
+ALTER TABLE productos 
+ADD COLUMN precio DECIMAL(10,2) NOT NULL DEFAULT 10.00;
+
+
+-- nueva tabla. Crear la tabla de auditoría
+CREATE TABLE IF NOT EXISTS auditoria_precios (
+    id_auditoria INT AUTO_INCREMENT PRIMARY KEY,
+    id_producto VARCHAR(10) NOT NULL,
+    precio_anterior DECIMAL(10, 2) NOT NULL,
+    precio_nuevo DECIMAL(10, 2) NOT NULL,
+    fecha_cambio DATETIME NOT NULL,
+    CONSTRAINT fk_auditoria_productos 
+        FOREIGN KEY (id_producto) REFERENCES productos(id_producto)
+);
+
+
 -- ----------------------------------------------------------------------------
 -- 3. CREACIÓN DE TABLAS CLIENTES
 -- ----------------------------------------------------------------------------
